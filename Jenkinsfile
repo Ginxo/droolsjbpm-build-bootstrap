@@ -1,8 +1,9 @@
 @Library('jenkins-pipeline-shared-libraries')_
+agentLabel = "kie-rhel7 && kie-mem24g && !master"
 
 pipeline {
     agent {
-        label 'kie-rhel7 && kie-mem24g && !master'
+        label agentLabel
     }
     tools {
         maven 'kie-maven-3.5.4'
