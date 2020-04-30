@@ -1,5 +1,5 @@
 @Library('jenkins-pipeline-shared-libraries')_
-agentLabel = "kie-rhel7 && kie-mem24g && !master"
+agentLabel = "kie-rhel7 && ${ADDITIONAL_LABEL} && !master"
 
 pipeline {
     agent {
