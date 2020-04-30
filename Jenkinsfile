@@ -2,6 +2,7 @@
 agentLabel = "${ADDITIONAL_LABEL?.trim() ? ADDITIONAL_LABEL + ' && ' : ''} kie-rhel7 && !master"
 additionalJunit = "${ADDITIONAL_JUNIT?.trim() ?: ''}"
 additionalArtifactsToArchive = "${ADDITIONAL_ARTIFACTS_TO_ARCHIVE?.trim() ?: ''}"
+additionalCheckstyle = "${ADDITIONAL_CHECKSTYLE?.trim() ?: ''}"
 
 pipeline {
     agent {
@@ -48,6 +49,7 @@ pipeline {
         always {
             junit '**/target/surefire-reports/**/*.xml' + additionalJunit
             archiveArtifacts artifacts: 'default' + additionalArtifactsToArchive
+            checkstyle additionalCheckstyle
             cleanWs()
         }
     }
