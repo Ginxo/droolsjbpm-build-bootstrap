@@ -7,7 +7,7 @@
     <groupId>org.jboss</groupId>
     <artifactId>jboss-parent</artifactId>
     <!-- Keep in sync with jboss-parent version in kie-user-bom-parent/pom.xml -->
-    <version>31</version>
+    <version>36</version>
     <relativePath/>
   </parent>
 
@@ -22,7 +22,7 @@
   <!-- major.minor.micro.Final -->
   <!-- For example: 1.2.3 without the suffix ".Final" corrupts the OSGi eclipse updatesite -->
   <!-- For example: 1.2.3.M2 corrupts the OSGi eclipse updatesite update order -->
-  <version>7.41.0-SNAPSHOT</version>
+  <version>7.43.0-SNAPSHOT</version>
 
   <name>KIE (Drools, jBPM, OptaPlanner) parent</name>
   <description>
@@ -111,7 +111,7 @@
     <!-- override is needed since 3.0.0-M2, coming from jboss-parent, has a bug. This can be removed once this bug was fixed. -->
     <!-- see https://issues.apache.org/jira/browse/MENFORCER-306 -->
     <version.enforcer.plugin>3.0.0-M1</version.enforcer.plugin>
-    <version.mysql.connector-java>5.1.47</version.mysql.connector-java>
+    <version.mysql.connector-java>8.0.16</version.mysql.connector-java>
     <version.net.jcip>1.0</version.net.jcip>
     <version.net.java.dev.glazedlists>1.8.0</version.net.java.dev.glazedlists>
     <version.net.sf.opencsv>2.3</version.net.sf.opencsv>
@@ -150,9 +150,10 @@
     <version.org.apache.velocity>1.7</version.org.apache.velocity>
     <version.org.apache.xmlbeans>3.1.0</version.org.apache.xmlbeans>
     <version.org.apache.ws.xmlschema>2.2.4</version.org.apache.ws.xmlschema>
-    <version.org.apache.xmlgraphics.batik>1.9.1</version.org.apache.xmlgraphics.batik>
-    <version.org.apache.xmlgraphics.commons>2.2</version.org.apache.xmlgraphics.commons>
+    <version.org.apache.xmlgraphics.batik>1.13</version.org.apache.xmlgraphics.batik>
+    <version.org.apache.xmlgraphics.commons>2.4</version.org.apache.xmlgraphics.commons>
     <version.org.assertj>3.14.0</version.org.assertj>
+    <version.org.bouncycastle>1.65</version.org.bouncycastle>
     <version.org.codehaus.btm>2.1.4</version.org.codehaus.btm>
     <version.org.codehaus.groovy>2.0.5</version.org.codehaus.groovy>
     <version.org.codehaus.jackson>1.9.13</version.org.codehaus.jackson>
@@ -172,6 +173,7 @@
     <version.org.eclipse.jdt>3.19.0</version.org.eclipse.jdt>
     <version.org.eclipse.jetty>9.2.14.v20151106</version.org.eclipse.jetty>
     <version.org.eclipse.jgit>5.0.2.201807311906-r</version.org.eclipse.jgit>
+    <version.org.eclipse.microprofile.openapi>1.1.2</version.org.eclipse.microprofile.openapi>
     <version.org.eclipse.persistence>2.7.6</version.org.eclipse.persistence>
     <version.org.eclipse.sisu>0.3.2</version.org.eclipse.sisu>
     <version.org.eclipse.emf.gwt>2.9.0</version.org.eclipse.emf.gwt>
@@ -263,7 +265,6 @@
     <version.org.wildfly.core>10.0.3.Final</version.org.wildfly.core>
     <version.org.wildfly.common>1.5.1.Final</version.org.wildfly.common>
     <version.org.yaml.snakeyaml>1.26</version.org.yaml.snakeyaml>
-    <version.postgresql>8.4-702.jdbc4</version.postgresql>
     <version.org.mozilla.rhino>1.7R4</version.org.mozilla.rhino>
     <version.rome>1.0</version.rome>
     <version.tomcat>9.0.22</version.tomcat>
@@ -278,7 +279,7 @@
     <version.xpp3>${version.xmlpull}</version.xpp3>
 
     <!-- Internal dependencies -->
-    <version.org.kie>7.41.0-SNAPSHOT</version.org.kie>
+    <version.org.kie>7.43.0-SNAPSHOT</version.org.kie>
     <version.org.drools>${version.org.kie}</version.org.drools>
     <version.org.optaplanner>${version.org.kie}</version.org.optaplanner>
     <version.org.jbpm>${version.org.kie}</version.org.jbpm>
@@ -305,7 +306,7 @@
     <version.org.antlr4>4.8</version.org.antlr4>
     <version.org.apache.cxf>3.2.12</version.org.apache.cxf>
     <version.org.apache.camel>2.24.0</version.org.apache.camel>
-    <version.org.codehaus.cargo>1.7.9</version.org.codehaus.cargo>
+    <version.org.codehaus.cargo>1.7.11</version.org.codehaus.cargo>
     <version.org.freemarker>2.3.28</version.org.freemarker>
     <!-- Dependencies for selenium tests -->
     <version.org.jboss.arquillian.selenium>3.13.0</version.org.jboss.arquillian.selenium>
@@ -393,7 +394,7 @@
     <!-- replaces findbugs-maven-plugin -->
     <version.com.github.spotbugs-maven-plugin>3.1.8</version.com.github.spotbugs-maven-plugin>
 
-    <maven.min.version>3.5.2</maven.min.version>
+    <maven.min.version>3.6.3</maven.min.version>
     <!-- Important: this is one and only place where the supported user agents (browsers) are configured.
          All webapps/showcases must use this property in their *.gwt.xml files.
          We only need to support IE11+, but there is no ie11 permutation. IE11 will use the Firefox one (gecko1_8) -->
@@ -429,7 +430,7 @@
 
 
     <!-- Latest release to be used by api-compatibility-check to check backwards compatibility of the Kie API. -->
-    <revapi.oldKieVersion>7.33.0.Final</revapi.oldKieVersion>
+    <revapi.oldKieVersion>7.39.0.Final</revapi.oldKieVersion>
     <revapi.newKieVersion>${project.version}</revapi.newKieVersion>
 
     <version.org.jboss.spec.javax.websocket>1.1.3.Final</version.org.jboss.spec.javax.websocket>
@@ -440,7 +441,7 @@
     <version.org.jboss.spec.javax.ws.rs.jboss-jaxrs-api_2.1_spec>1.0.2.Final</version.org.jboss.spec.javax.ws.rs.jboss-jaxrs-api_2.1_spec>
     <version.org.apache.maven.plugins.dependency>3.0.2</version.org.apache.maven.plugins.dependency>
 
-    <version.org.postgresql>42.2.12</version.org.postgresql>
+    <version.org.postgresql>42.2.14</version.org.postgresql>
     <version.mariadb-java-client>1.3.4</version.mariadb-java-client>
 
     <version.ch.obermuhlner>2.0.1</version.ch.obermuhlner>
@@ -478,7 +479,7 @@
     <version.org.kogito.gwt-jsonix-schema-compiler>1.2.1</version.org.kogito.gwt-jsonix-schema-compiler>
     <version.org.hisrc.jsonix.jsonix-scripts>3.0.0</version.org.hisrc.jsonix.jsonix-scripts>
     <version.org.jvnet.jaxb2.maven2.maven-jaxb2-plugin>0.14.0</version.org.jvnet.jaxb2.maven2.maven-jaxb2-plugin>
-    <version.org.mock-server>5.10.0</version.org.mock-server>
+    <version.org.mock-server>5.11.1</version.org.mock-server>
   </properties>
 
   <repositories>
@@ -3563,6 +3564,14 @@
         <artifactId>org.eclipse.jgit</artifactId>
         <version>${version.org.eclipse.jgit}</version>
       </dependency>
+      
+      <!-- Used for testing of DMN codegen -->
+      <dependency>
+        <groupId>org.eclipse.microprofile.openapi</groupId>
+        <artifactId>microprofile-openapi-api</artifactId>
+        <version>${version.org.eclipse.microprofile.openapi}</version>
+        <scope>test</scope>
+      </dependency>
 
       <!-- For JAXB JSON provider in optaplanner-persistence tests -->
       <dependency>
@@ -4389,12 +4398,6 @@
         <groupId>org.yaml</groupId>
         <artifactId>snakeyaml</artifactId>
         <version>${version.org.yaml.snakeyaml}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>postgresql</groupId>
-        <artifactId>postgresql</artifactId>
-        <version>${version.postgresql}</version>
       </dependency>
 
       <dependency>
@@ -5291,6 +5294,21 @@
             <artifactId>jaxb-api</artifactId>
           </exclusion>
         </exclusions>
+        <scope>test</scope>
+      </dependency>
+      
+      <!-- Used by jbpm-workitems-rest -->
+      <dependency>
+        <groupId>org.bouncycastle</groupId>
+        <artifactId>bcprov-jdk15on</artifactId>
+        <version>${version.org.bouncycastle}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.bouncycastle</groupId>
+        <artifactId>bcpkix-jdk15on</artifactId>
+        <version>${version.org.bouncycastle}</version>
+        <scope>test</scope>
       </dependency>
 
       <!-- Used by kie-pmml-trusty projects -->
