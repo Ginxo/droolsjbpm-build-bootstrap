@@ -35,4 +35,3 @@ jobs:
         workflow-file-name: "pull_request.yml"
       env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-        
