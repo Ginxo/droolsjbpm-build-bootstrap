@@ -23,7 +23,6 @@ jobs:
           output-file-path: ./script/repository-list.txt
       - name: Push Changes
         run: |
-          git branch
           git config user.name "kie"
           git config user.email "kie@redhat.com"
           git add ./doc/project-dependencies-hierarchy.png ./script/repository-list.txt
