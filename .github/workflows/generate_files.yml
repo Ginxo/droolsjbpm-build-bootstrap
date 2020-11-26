@@ -24,11 +24,11 @@ jobs:
       - name: Push Changes
         run: |
           git branch
-          git config --global user.name "kie"
-          git config --global user.email "kie@redhat.com"
+          git config user.name "kie"
+          git config user.email "kie@redhat.com"
           git add ./doc/project-dependencies-hierarchy.png ./script/repository-list.txt
           git commit -m "[Build Chain Generate Files] project hierarchy files updated"
-          git push origin ${GITHUB_REF_NAME}
+          git push
       - name: Archive artifacts
         uses: actions/upload-artifact@v2
         with:
