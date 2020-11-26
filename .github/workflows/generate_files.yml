@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     name: File Generation
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Image Generation
         uses: kiegroup/build-chain-files-generator@v1.0
         with:
@@ -21,6 +23,8 @@ jobs:
           output-file-path: ./script/repository-list.txt
       - name: Push Changes
         run: |
+          pwd
+          ls
           git add ./doc/project-dependencies-hierarchy.png ./script/repository-list.txt
           git commit -m "[Build Chain Generate Files] project hierarchy files updated"
           git push origin ${GITHUB_REF_NAME}
@@ -30,4 +34,4 @@ jobs:
           name: generated-files
           path: |
             **/image.png
-            **/repository-list.txt
+            **/repository-list.txt          
