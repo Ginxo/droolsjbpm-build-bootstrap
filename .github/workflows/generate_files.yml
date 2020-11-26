@@ -32,7 +32,7 @@ jobs:
         run: |
           git config user.name "kiegroup"
           git config user.email "kiegroup@redhat.com"
-          git add ./doc/project-dependencies-hierarchy.png ./script/repository-list.txt
+          git add ./docs/project-dependencies-hierarchy.png ./script/repository-list.txt
           git commit -m "[Build Chain Generate Files] project hierarchy files updated"
           git push
       - name: Archive artifacts
