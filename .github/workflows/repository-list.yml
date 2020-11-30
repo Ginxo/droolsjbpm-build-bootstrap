@@ -9,7 +9,7 @@ on:
       - 'script/branched-7-repository-list.txt'
 
 jobs:
-  build:
+  check:
     runs-on: ubuntu-latest
     steps:
       - name: Create comment
