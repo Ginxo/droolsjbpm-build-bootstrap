@@ -21,5 +21,3 @@ jbpm-work-items
 jbpm-wb
 kie-docs
 optaweb-employee-rostering
-optaweb-vehicle-routing
-kie-wb-distributions
