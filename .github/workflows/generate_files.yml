@@ -56,7 +56,7 @@ jobs:
           branch: ${{ env.BRANCH_NAME_FLOW }}
           delete-branch: true
           title: '[Build Chain] Update CI files'
-          reviewers: mbiarnes,ginxo,mareknovotny
+          reviewers: mbiarnes,ginxo
           draft: false
       - name: Check outputs
         run: |
