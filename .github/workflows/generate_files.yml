@@ -34,6 +34,14 @@ jobs:
           include: "@master:7.x"
       - name: Add Changes
         run: git add ./docs/project-dependencies-hierarchy.png ./script/repository-list.txt ./script/branched-7-repository-list.txt
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: generated-files
+          path: |
+            **/project-dependencies-hierarchy.png
+            **/repository-list.txt          
+            **/branched-7-repository-list.txt           
       - name: Set branch name
         run: echo "BRANCH_NAME_FLOW=generate_files_$(date +'%Y%m%dT%H%M%S')" >> $GITHUB_ENV          
       - name: Create Pull Request
@@ -48,18 +56,9 @@ jobs:
           branch: ${{ env.BRANCH_NAME_FLOW }}
           delete-branch: true
           title: '[Build Chain] Update CI files'
-          assignees: mbiarnes,ginxo,mareknovotny
           reviewers: mbiarnes,ginxo,mareknovotny
           draft: false
       - name: Check outputs
         run: |
           echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
           echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
-      - name: Archive artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: generated-files
-          path: |
-            **/project-dependencies-hierarchy.png
-            **/repository-list.txt          
-            **/branched-7-repository-list.txt   
