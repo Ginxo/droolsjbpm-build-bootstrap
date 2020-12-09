@@ -56,6 +56,11 @@ jobs:
           branch: ${{ env.BRANCH_NAME_FLOW }}
           delete-branch: true
           title: '[Build Chain] Update CI files'
+          body: |
+            Update report
+            - ./docs/project-dependencies-hierarchy.png
+            - ./script/repository-list.txt
+            - ./script/branched-7-repository-list.txt
           reviewers: mbiarnes,ginxo
           draft: false
       - name: Check outputs
