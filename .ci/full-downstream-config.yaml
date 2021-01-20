@@ -8,12 +8,17 @@ default:
     upstream: mvn -e --builder smart -T1C clean install -DskipTests -Dgwt.compiler.skip=true -Dgwt.skipCompilation=true -Denforcer.skip=true -Dcheckstyle.skip=true -Dspotbugs.skip=true -Drevapi.skip=true -Dmaven.wagon.httpconnectionManager.ttlSeconds=25 -Dmaven.wagon.http.retryHandler.count=3
     downstream: mvn -e -nsu clean install -Dfull -DskipTests -Pbusiness-central,wildfly,sourcemaps,no-showcase -Dcontainer=wildfly -Dcontainer.profile=wildfly -Dcargo.ignore.failures=true -Dmaven.test.failure.ignore=true -Dmaven.test.redirectTestOutputToFile=true -Dgwt.compiler.localWorkers=1 -Dwebdriver.firefox.bin=/opt/tools/firefox-60esr/firefox-bin -Dgwt.skipCompilation=true -Dmaven.wagon.httpconnectionManager.ttlSeconds=25 -Dmaven.wagon.http.retryHandler.count=3
     before:
-      current: java -version
-      upstream: java -version
-      downstream: java -version
-    after:
+      current: |
+        java -version
+        mvn -version
       upstream: |
         java -version
+        mvn -version
+      downstream: |
+        java -version
+        mvn -version
+    after:
+      upstream: |
         rm -rf ./*
 
 build:
