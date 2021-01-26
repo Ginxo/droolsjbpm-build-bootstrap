@@ -74,12 +74,9 @@ dependencies:
   - project: kiegroup/kie-wb-common
     dependencies:
       - project: kiegroup/lienzo-core
-<<<<<<< HEAD
       - project: kiegroup/appformer
       - project: kiegroup/kie-uberfire-extensions
       - project: kiegroup/kie-wb-playground
-=======
->>>>>>> origin/master
       - project: kiegroup/droolsjbpm-integration
 
   - project: kiegroup/drools-wb
