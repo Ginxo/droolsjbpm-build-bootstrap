@@ -13,23 +13,15 @@ jobs:
     runs-on: ubuntu-latest
     name: File Generation
     steps:
-      - id: files
+      - id: files_changes
         uses: jitterbit/get-changed-files@v1
-      - run: |
-          for changed_file in ${{ steps.files.outputs.all }}; do
-            echo "Do something with this ${changed_file}."
-          done
-      - id: file_changes
-        uses: trilom/file-changes-action@v1.2.3
       - id: build_chain_info
         run: |
-          files_array=()
           files_string=""
-          for changed_file in ${{ steps.file_changes.outputs.files_modified }}; do
-            files_array+=("${changed_file}")
+          for changed_file in ${{ steps.files_changes.outputs.all }}; do
+            echo "Changed file ${changed_file}."
             files_string="${files_string//$'\n'/\\n}- ${changed_file}"
           done
-          echo "::set-output name=files::${files_array[@]}"
           echo "::set-output name=files_string::${files_string}"
           echo "::set-output name=commitId::$(git rev-parse --short "$GITHUB_SHA")"
           echo "::set-output name=jobId::${GITHUB_RUN_ID}-${GITHUB_RUN_NUMBER}"
@@ -82,7 +74,6 @@ jobs:
             ${{ steps.build_chain_info.outputs.files_string }}
             Commit id: #${{ steps.build_chain_info.outputs.commitId }}
             Job ID: ${{ steps.build_chain_info.outputs.jobId }}
-            ${{ steps.file_changes.outputs.files_modified }}
           draft: false
       - name: Check outputs
         run: |

@@ -144,5 +144,6 @@ dependencies:
   - project: kiegroup/kie-wb-distributions
     dependencies:
       - project: kiegroup/optaplanner
+      - project: kiegroup/jbpm-wb
       - project: kiegroup/appformer
       - project: kiegroup/optaplanner-wb
