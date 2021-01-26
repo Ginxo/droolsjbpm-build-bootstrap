@@ -28,7 +28,7 @@ jobs:
           files_string="${files_string//$'\n'/'%0A'}"
           files_string="${files_string//$'\r'/'%0D'}"
           echo "::set-output name=files_string::${files_string}"
-          echo "::set-output name=commitURL::${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/${GITHUB_SHA}"
+          echo "::set-output name=commitURL::${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA}"
           echo "::set-output name=jobURL::${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 
       - uses: actions/checkout@v2

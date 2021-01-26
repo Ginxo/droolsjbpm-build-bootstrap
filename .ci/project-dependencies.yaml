@@ -86,7 +86,6 @@ dependencies:
 
   - project: kiegroup/optaplanner-wb
     dependencies:
-      - project: kiegroup/appformer
       - project: kiegroup/kie-wb-playground
 
   - project: kiegroup/jbpm-designer
