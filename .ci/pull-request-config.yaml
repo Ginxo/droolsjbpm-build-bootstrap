@@ -62,5 +62,4 @@ build:
     archive-artifacts:
       path: |
         **/target/business-monitoring-webapp.war
-        **/target/business-central*wildfly*.war
         **/target/jbpm-server*dist*.zip
