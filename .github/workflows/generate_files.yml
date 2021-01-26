@@ -73,7 +73,7 @@ jobs:
             Update report
             ${{ steps.build_chain_files.outputs.files }}
             Commit id: #$(git rev-parse --short "$GITHUB_SHA")
-            Job ID: ${{ env.jobId }}
+            Job ID: ${{ GITHUB_RUN_ID }}-${{ GITHUB_RUN_NUMBER }}
           draft: false
       - name: Check outputs
         run: |
