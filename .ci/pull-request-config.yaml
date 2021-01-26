@@ -12,7 +12,7 @@ default:
 build:
   - project: kiegroup/appformer
     build-command:
-      upstream: mvn -e clean install -DskipTests -Dgwt.compiler.skip=true -Dgwt.skipCompilation=true -Denforcer.skip=true -Dcheckstyle.skip=true -Dspotbugs.skip=true -Drevapi.skip=true -Dmaven.wagon.httpconnectionManager.ttlSeconds=25 -Dmaven.wagon.http.retryHandler.count=3
+      upstream: mvn -e  install -DskipTests -Dgwt.compiler.skip=true -Dgwt.skipCompilation=true -Denforcer.skip=true -Dcheckstyle.skip=true -Dspotbugs.skip=true -Drevapi.skip=true -Dmaven.wagon.httpconnectionManager.ttlSeconds=25 -Dmaven.wagon.http.retryHandler.count=3
     archive-artifacts:
       path: |
         **/dashbuilder-runtime.war
@@ -73,5 +73,7 @@ build:
       current: mvn -e -nsu install -Dfull -Prun-code-coverage -Pwildfly -Dcontainer=wildfly -Dcontainer.profile=wildfly -Dintegration-tests=true -Dmaven.test.failure.ignore=true -Pbusiness-central -Dgwt.compiler.localWorkers=1 -Dwebdriver.firefox.bin=/opt/tools/firefox-60esr/firefox-bin -Dmaven.wagon.httpconnectionManager.ttlSeconds=25 -Dmaven.wagon.http.retryHandler.count=3
     archive-artifacts:
       path: |
+        **/target/business-monitoring-webapp.war
+        **/target/business-central*eap*.war
         **/target/business-central*wildfly*.war
         **/target/jbpm-server*dist*.zip
