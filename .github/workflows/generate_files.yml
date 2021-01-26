@@ -7,11 +7,24 @@ on:
     paths:
       - '.ci/**'
 
+
+env:
+  jobId: ${GITHUB_RUN_ID}-${GITHUB_RUN_NUMBER}
+
 jobs:
   build-chain:
     runs-on: ubuntu-latest
     name: File Generation
     steps:
+      - id: file_changes
+        uses: trilom/file-changes-action@v1.2.3
+      - id: build_chain_files
+        run: |
+          files_array=()
+          for changed_file in ${{ steps.file_changes.outputs.files_modified }}; do
+            files_array+=("${changed_file}")
+          done
+          echo "::set-output name=files::${files_array[@]}"
       - uses: actions/checkout@v2
       - name: Image Generation
         uses: kiegroup/build-chain-files-generator@main
@@ -58,10 +71,9 @@ jobs:
           title: '[Build Chain] Update build chain and repository-list files.'
           body: |
             Update report
-            - ./docs/project-dependencies-hierarchy.png
-            - ./script/repository-list.txt
-            - ./script/branched-7-repository-list.txt
-          reviewers: mbiarnes,ginxo,mareknovotny
+            ${{ steps.build_chain_files.outputs.files }}
+            Commit id: #$(git rev-parse --short "$GITHUB_SHA")
+            Job ID: ${{ env.jobId }}
           draft: false
       - name: Check outputs
         run: |
