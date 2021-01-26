@@ -8,9 +8,6 @@ on:
       - '.ci/**'
 
 
-env:
-  jobId: ${{ GITHUB_RUN_ID }}-${{ GITHUB_RUN_NUMBER }}
-
 jobs:
   build-chain:
     runs-on: ubuntu-latest
