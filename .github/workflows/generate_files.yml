@@ -76,6 +76,7 @@ jobs:
             ${{ steps.build_chain_info.outputs.files_string }}
             Commit id: #${{ steps.build_chain_info.outputs.commitId }}
             Job ID: ${{ steps.build_chain_info.outputs.jobId }}
+            ${{ steps.file_changes.outputs.files_modified }}
           draft: false
       - name: Check outputs
         run: |
