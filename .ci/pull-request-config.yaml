@@ -5,8 +5,6 @@ dependencies: ./project-dependencies.yaml
 default:
   build-command:
     current: mvn -e -nsu -Dfull -Pwildfly clean install -Prun-code-coverage  -Dcontainer.profile=wildfly -Dcontainer=wildfly -Dintegration-tests=true -Dmaven.test.failure.ignore=true -Dmaven.wagon.httpconnectionManager.ttlSeconds=25 -Dmaven.wagon.http.retryHandler.count=3
-    after:
-      upstream: rm -rf ./*
 
 build:
   - project: kiegroup/appformer

@@ -28,8 +28,8 @@ jobs:
           files_string="${files_string//$'\n'/'%0A'}"
           files_string="${files_string//$'\r'/'%0D'}"
           echo "::set-output name=files_string::${files_string}"
-          echo "::set-output name=commitId::${GITHUB_SHA}"
-          echo "::set-output name=jobId::${GITHUB_RUN_ID} #${GITHUB_RUN_NUMBER}"
+          echo "::set-output name=commitURL::${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/${GITHUB_SHA}"
+          echo "::set-output name=jobURL::${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 
       - uses: actions/checkout@v2
       - name: Image Generation
@@ -76,8 +76,8 @@ jobs:
           delete-branch: true
           title: '[Build Chain] Update build chain and repository-list files.'
           body: |
-            Update report. These files where changed by "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/${{ steps.build_chain_info.outputs.commitId }}
-            Job ID: "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+            Update report. These files where changed by ${{ steps.build_chain_info.outputs.commitURL }}
+            Job ID: ${{ steps.build_chain_info.outputs.jobURL }}
             ${{ steps.build_chain_info.outputs.files_string }}
           draft: false
       - name: Check outputs
