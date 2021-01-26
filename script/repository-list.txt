@@ -1,12 +1,12 @@
+lienzo-core
 droolsjbpm-build-bootstrap
+lienzo-tests
 kie-soup
+appformer
+kie-uberfire-extensions
 droolsjbpm-knowledge
 drools
 optaplanner
-lienzo-core
-lienzo-tests
-appformer
-kie-uberfire-extensions
 jbpm
 kie-jpmml-integration
 droolsjbpm-integration
