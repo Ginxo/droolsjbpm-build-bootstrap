@@ -107,7 +107,6 @@ dependencies:
   - project: kiegroup/jbpm-wb
     dependencies:
       - project: kiegroup/kie-uberfire-extensions
-      - project: kiegroup/jbpm-work-items
 
   - project: kiegroup/kie-docs
 
