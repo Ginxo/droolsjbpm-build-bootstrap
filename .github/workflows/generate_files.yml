@@ -13,6 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     name: File Generation
     steps:
+      - id: files
+        uses: jitterbit/get-changed-files@v1
+      - run: |
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            echo "Do something with this ${changed_file}."
+          done
       - id: file_changes
         uses: trilom/file-changes-action@v1.2.3
       - id: build_chain_info
