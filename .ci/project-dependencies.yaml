@@ -142,3 +142,5 @@ dependencies:
         - kiegroup/optaplanner
 
   - project: kiegroup/kie-wb-distributions
+    dependencies:
+      - project: kiegroup/optaplanner-wb

@@ -21,7 +21,7 @@ jobs:
           files_string=""
           for changed_file in ${{ steps.file_changes.outputs.files_modified }}; do
             files_array+=("${changed_file}")
-            files_string="${files_string//$'\n'/\\n '-' changed_file}"
+            files_string="${files_string//$'\n'/\\n}- ${changed_file}"
           done
           echo "::set-output name=files::${files_array[@]}"
           echo "::set-output name=files_string::${files_string}"
