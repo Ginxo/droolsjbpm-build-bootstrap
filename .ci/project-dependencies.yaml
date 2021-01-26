@@ -88,7 +88,6 @@ dependencies:
     dependencies:
       - project: kiegroup/appformer
       - project: kiegroup/kie-uberfire-extensions
-      - project: kiegroup/drools-wb
       - project: kiegroup/kie-wb-common
       - project: kiegroup/kie-wb-playground
 
