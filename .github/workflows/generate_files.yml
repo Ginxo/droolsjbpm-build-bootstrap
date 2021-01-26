@@ -70,7 +70,7 @@ jobs:
           delete-branch: true
           title: '[Build Chain] Update build chain and repository-list files.'
           body: |
-            Update report #1
+            Update report #2
             ${{ steps.build_chain_info.outputs.files_string }}
             Commit id: #${{ steps.build_chain_info.outputs.commitId }}
             Job ID: ${{ steps.build_chain_info.outputs.jobId }}

@@ -50,7 +50,6 @@ build:
     archive-artifacts:
       path: |
         **/target/jbpm-wb-case-mgmt-showcase*.war
-        **/target/jbpm-wb-showcase.war
 
   - project: kiegroup/kie-docs
     build-command:
