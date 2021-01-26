@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.kie</groupId>
     <artifactId>kie-user-bom-parent</artifactId>
-    <version>7.48.0-SNAPSHOT</version>
+    <version>7.49.0-SNAPSHOT</version>
     <relativePath>../kie-user-bom-parent/pom.xml</relativePath>
   </parent>
 
@@ -2645,102 +2645,6 @@
         <artifactId>kie-wb-common-stunner-bpmn-project-backend</artifactId>
         <version>${version.org.kie}</version>
         <classifier>sources</classifier>
-      </dependency>
-
-      <!-- Stunner - Case Management -->
-
-      <dependency>
-        <groupId>org.kie.workbench.stunner</groupId>
-        <artifactId>kie-wb-common-stunner-case-mgmt-api</artifactId>
-        <version>${version.org.kie}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.kie.workbench.stunner</groupId>
-        <artifactId>kie-wb-common-stunner-case-mgmt-api</artifactId>
-        <version>${version.org.kie}</version>
-        <classifier>sources</classifier>
-      </dependency>
-
-      <dependency>
-        <groupId>org.kie.workbench.stunner</groupId>
-        <artifactId>kie-wb-common-stunner-case-mgmt-backend</artifactId>
-        <version>${version.org.kie}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.kie.workbench.stunner</groupId>
-        <artifactId>kie-wb-common-stunner-case-mgmt-backend</artifactId>
-        <version>${version.org.kie}</version>
-        <classifier>sources</classifier>
-      </dependency>
-
-      <dependency>
-        <groupId>org.kie.workbench.stunner</groupId>
-        <artifactId>kie-wb-common-stunner-case-mgmt-client</artifactId>
-        <version>${version.org.kie}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.kie.workbench.stunner</groupId>
-        <artifactId>kie-wb-common-stunner-case-mgmt-client</artifactId>
-        <version>${version.org.kie}</version>
-        <classifier>sources</classifier>
-      </dependency>
-
-      <dependency>
-        <groupId>org.kie.workbench.stunner</groupId>
-        <artifactId>kie-wb-common-stunner-case-mgmt-project-api</artifactId>
-        <version>${version.org.kie}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.kie.workbench.stunner</groupId>
-        <artifactId>kie-wb-common-stunner-case-mgmt-project-api</artifactId>
-        <version>${version.org.kie}</version>
-        <classifier>sources</classifier>
-      </dependency>
-
-      <dependency>
-        <groupId>org.kie.workbench.stunner</groupId>
-        <artifactId>kie-wb-common-stunner-case-mgmt-project-client</artifactId>
-        <version>${version.org.kie}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.kie.workbench.stunner</groupId>
-        <artifactId>kie-wb-common-stunner-case-mgmt-project-client</artifactId>
-        <version>${version.org.kie}</version>
-        <classifier>sources</classifier>
-      </dependency>
-
-      <dependency>
-        <groupId>org.kie.workbench.stunner</groupId>
-        <artifactId>kie-wb-common-stunner-case-mgmt-project-backend</artifactId>
-        <version>${version.org.kie}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.kie.workbench.stunner</groupId>
-        <artifactId>kie-wb-common-stunner-case-mgmt-project-backend</artifactId>
-        <version>${version.org.kie}</version>
-        <classifier>sources</classifier>
-      </dependency>
-
-      <!-- Stunner Showcases.-->
-
-      <dependency>
-        <groupId>org.kie.workbench.stunner</groupId>
-        <artifactId>kie-wb-common-stunner-showcase-standalone</artifactId>
-        <version>${version.org.kie}</version>
-        <type>war</type>
-      </dependency>
-
-      <dependency>
-        <groupId>org.kie.workbench.stunner</groupId>
-        <artifactId>kie-wb-common-stunner-showcase-project</artifactId>
-        <version>${version.org.kie}</version>
-        <type>war</type>
       </dependency>
 
       <!-- Stunner - DMN Editor -->
