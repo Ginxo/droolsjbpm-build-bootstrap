@@ -20,4 +20,5 @@ def call(def propertiesFolderPath) {
     }
 }
 
+
 return this
