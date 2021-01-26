@@ -22,7 +22,7 @@ jobs:
             files_array+=("${changed_file}")
           done
           echo "::set-output name=files::${files_array[@]}"
-          echo "::set-output name=commitId::$(git rev-parse --short '$GITHUB_SHA')"
+          echo "::set-output name=commitId::$(git rev-parse --short "$GITHUB_SHA")"
           echo "::set-output name=jobId::${GITHUB_RUN_ID}-${GITHUB_RUN_NUMBER}"
       - uses: actions/checkout@v2
       - name: Image Generation
