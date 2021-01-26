@@ -24,10 +24,16 @@ jobs:
             echo "Changed file ${changed_file}."
           done
           echo "${files_string}"
-          echo "$files_string" >> $GITHUB_ENV
           echo "::set-output name=files_string::${files_string}"
           echo "::set-output name=commitId::$(git rev-parse --short "$GITHUB_SHA")"
           echo "::set-output name=jobId::${GITHUB_RUN_ID}-${GITHUB_RUN_NUMBER}"
+
+          MY_STRING=files_string
+          MY_STRING="${MY_STRING//'%'/'%25'}"
+          MY_STRING="${MY_STRING//$'\n'/'%0A'}"
+          MY_STRING="${MY_STRING//$'\r'/'%0D'}"
+          echo "::set-output name=my_string::$MY_STRING"
+
       - uses: actions/checkout@v2
       - name: Image Generation
         uses: kiegroup/build-chain-files-generator@main
@@ -77,7 +83,9 @@ jobs:
             ${{ steps.build_chain_info.outputs.files_string }}
             Commit id: #${{ steps.build_chain_info.outputs.commitId }}
             Job ID: ${{ steps.build_chain_info.outputs.jobId }}
-            ${{ env.files_string }}
+            my_string
+            ${{ steps.build_chain_info.outputs.my_string }}
+
           draft: false
       - name: Check outputs
         run: |
