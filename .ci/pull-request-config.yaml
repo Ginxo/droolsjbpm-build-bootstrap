@@ -58,7 +58,6 @@ build:
   - project: kiegroup/optaweb-employee-rostering
     archive-artifacts:
       path: |
-        **/cypress/screenshots/**
         **/cypress/videos/**
 
   - project: kiegroup/optaweb-vehicle-routing
