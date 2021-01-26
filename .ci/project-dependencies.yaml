@@ -138,7 +138,6 @@ dependencies:
       source: master
       target: 7.x
       exclude:
-        - kiegroup/optaweb-employee-rostering  
         - kiegroup/optaplanner
 
   - project: kiegroup/kie-wb-distributions

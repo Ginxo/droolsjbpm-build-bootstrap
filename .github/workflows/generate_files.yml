@@ -20,7 +20,9 @@ jobs:
           files_string=""
           for changed_file in ${{ steps.files_changes.outputs.all }}; do
             echo "Changed file ${changed_file}."
-            files_string="${files_string}\n - ${changed_file}"
+            files_string="${files_string//'%'/'%25'} - ${changed_file}"
+            files_string="${files_string//$'\n'/'%0A'} - ${changed_file}"
+            files_string="${files_string//$'\r'/'%0D'} - ${changed_file}"
           done
           echo "::set-output name=files_string::${files_string}"
           echo "::set-output name=commitId::$(git rev-parse --short "$GITHUB_SHA")"
