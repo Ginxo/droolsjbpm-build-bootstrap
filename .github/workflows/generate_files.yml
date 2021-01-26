@@ -76,8 +76,9 @@ jobs:
           delete-branch: true
           title: '[Build Chain] Update build chain and repository-list files.'
           body: |
-            Update report. These files where changed by ${{ steps.build_chain_info.outputs.commitURL }}
-            Job ID: ${{ steps.build_chain_info.outputs.jobURL }}
+            # Update Report
+            **Pull Request created by:** ${{ steps.build_chain_info.outputs.jobURL }}
+            These files where changed by ${{ steps.build_chain_info.outputs.commitURL }}
             ${{ steps.build_chain_info.outputs.files_string }}
           draft: false
       - name: Check outputs
