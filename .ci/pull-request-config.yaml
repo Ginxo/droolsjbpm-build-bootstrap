@@ -55,7 +55,6 @@ build:
     archive-artifacts:
       path: |
         **/cypress/screenshots/**
-        **/cypress/videos/**
 
   - project: kiegroup/kie-wb-distributions
     build-command:

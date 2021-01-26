@@ -28,7 +28,7 @@ jobs:
           echo "::set-output name=commitId::$(git rev-parse --short "$GITHUB_SHA")"
           echo "::set-output name=jobId::${GITHUB_RUN_ID}-${GITHUB_RUN_NUMBER}"
 
-          MY_STRING=files_string
+          MY_STRING=${files_string}
           MY_STRING="${MY_STRING//'%'/'%25'}"
           MY_STRING="${MY_STRING//$'\n'/'%0A'}"
           MY_STRING="${MY_STRING//$'\r'/'%0D'}"
