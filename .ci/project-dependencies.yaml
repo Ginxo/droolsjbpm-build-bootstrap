@@ -146,4 +146,5 @@ dependencies:
       - project: kiegroup/optaplanner
       - project: kiegroup/jbpm-wb
       - project: kiegroup/appformer
+      - project: kiegroup/kie-uberfire-extensions
       - project: kiegroup/optaplanner-wb

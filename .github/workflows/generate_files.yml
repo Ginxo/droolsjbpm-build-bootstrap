@@ -18,13 +18,15 @@ jobs:
     steps:
       - id: file_changes
         uses: trilom/file-changes-action@v1.2.3
-      - id: build_chain_files
+      - id: build_chain_info
         run: |
           files_array=()
           for changed_file in ${{ steps.file_changes.outputs.files_modified }}; do
             files_array+=("${changed_file}")
           done
           echo "::set-output name=files::${files_array[@]}"
+          echo "::set-output name=commitId::$(git rev-parse --short '$GITHUB_SHA')"
+          echo "::set-output name=jobId::${GITHUB_RUN_ID}-${GITHUB_RUN_NUMBER}"
       - uses: actions/checkout@v2
       - name: Image Generation
         uses: kiegroup/build-chain-files-generator@main
@@ -71,9 +73,9 @@ jobs:
           title: '[Build Chain] Update build chain and repository-list files.'
           body: |
             Update report
-            ${{ steps.build_chain_files.outputs.files }}
-            Commit id: #$(git rev-parse --short "$GITHUB_SHA")
-            Job ID: ${{ env.jobId }}
+            ${{ steps.build_chain_info.outputs.files }}
+            Commit id: #${{ steps.build_chain_info.outputs.commitId }}
+            Job ID: ${{ steps.build_chain_info.outputs.jobId }}
           draft: false
       - name: Check outputs
         run: |
