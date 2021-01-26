@@ -76,8 +76,8 @@ jobs:
           delete-branch: true
           title: '[Build Chain] Update build chain and repository-list files.'
           body: |
-            Update report. These files where changed by #${{ steps.build_chain_info.outputs.commitId }}
-            Job ID: ${{ steps.build_chain_info.outputs.jobId }}
+            Update report. These files where changed by "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/${{ steps.build_chain_info.outputs.commitId }}
+            Job ID: "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
             ${{ steps.build_chain_info.outputs.files_string }}
           draft: false
       - name: Check outputs

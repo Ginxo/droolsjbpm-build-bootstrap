@@ -96,7 +96,6 @@ dependencies:
 
   - project: kiegroup/jbpm-work-items
     dependencies:
-      - project: kiegroup/jbpm
       - project: kiegroup/droolsjbpm-integration
 
   - project: kiegroup/jbpm-wb
