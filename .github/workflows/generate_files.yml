@@ -18,10 +18,13 @@ jobs:
       - id: build_chain_info
         run: |
           files_array=()
+          files_string=""
           for changed_file in ${{ steps.file_changes.outputs.files_modified }}; do
             files_array+=("${changed_file}")
+            files_string+="${changed_file}"
           done
           echo "::set-output name=files::${files_array[@]}"
+          echo "::set-output name=files_string::${files_string}"
           echo "::set-output name=commitId::$(git rev-parse --short "$GITHUB_SHA")"
           echo "::set-output name=jobId::${GITHUB_RUN_ID}-${GITHUB_RUN_NUMBER}"
       - uses: actions/checkout@v2
