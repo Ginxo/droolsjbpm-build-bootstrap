@@ -73,7 +73,7 @@ jobs:
           title: '[Build Chain] Update build chain and repository-list files.'
           body: |
             Update report
-            ${{ steps.build_chain_info.outputs.files }}
+            ${{ steps.build_chain_info.outputs.files_string }}
             Commit id: #${{ steps.build_chain_info.outputs.commitId }}
             Job ID: ${{ steps.build_chain_info.outputs.jobId }}
           draft: false
