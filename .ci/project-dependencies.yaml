@@ -76,6 +76,7 @@ dependencies:
       - project: kiegroup/lienzo-core
       - project: kiegroup/appformer
       - project: kiegroup/kie-uberfire-extensions
+      - project: kiegroup/kie-wb-playground
       - project: kiegroup/droolsjbpm-integration
 
   - project: kiegroup/drools-wb
@@ -85,6 +86,13 @@ dependencies:
 
   - project: kiegroup/optaplanner-wb
     dependencies:
+      - project: kiegroup/appformer
+      - project: kiegroup/kie-uberfire-extensions
+      - project: kiegroup/drools-wb
+      - project: kiegroup/drools
+      - project: kiegroup/optaplanner
+      - project: kiegroup/kie-soup
+      - project: kiegroup/kie-wb-common
       - project: kiegroup/kie-wb-playground
 
   - project: kiegroup/jbpm-designer
@@ -93,11 +101,15 @@ dependencies:
 
   - project: kiegroup/jbpm-work-items
     dependencies:
+      - project: kiegroup/jbpm
       - project: kiegroup/droolsjbpm-integration
 
   - project: kiegroup/jbpm-wb
     dependencies:
       - project: kiegroup/kie-uberfire-extensions
+      - project: kiegroup/drools-wb
+      - project: kiegroup/jbpm-designer
+      - project: kiegroup/jbpm-work-items
 
   - project: kiegroup/kie-docs
 
@@ -126,9 +138,15 @@ dependencies:
       source: master
       target: 7.x
       exclude:
+        - kiegroup/optaweb-employee-rostering  
         - kiegroup/optaplanner
 
   - project: kiegroup/kie-wb-distributions
     dependencies:
+      - project: kiegroup/kie-soup
+      - project: kiegroup/drools
+      - project: kiegroup/optaplanner
       - project: kiegroup/jbpm-wb
+      - project: kiegroup/appformer
+      - project: kiegroup/kie-uberfire-extensions
       - project: kiegroup/optaplanner-wb
