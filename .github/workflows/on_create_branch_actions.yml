@@ -16,9 +16,9 @@ jobs:
       - name: print current branch
         run: echo ${GITHUB_REF##*/}
       - name: Add branch to generate_files.yml
-        run: sed -i "6i \ \ \ \ \ \ \- ${GITHUB_REF##*/}" ./.github/generate_files.yml
+        run: sed -i "6i \ \ \ \ \ \ \- ${GITHUB_REF##*/}" ./.github/workflows/generate_files.yml
       - name: Add Changes
-        run: git add ./.github/generate_files.yml
+        run: git add ./.github/workflows/generate_files.yml
       - name: Set branch name
         run: echo "BRANCH_NAME_FLOW=new_branch_action/$(date +'%Y%m%dT%H%M%S')" >> $GITHUB_ENV          
       - name: Create Pull Request
@@ -35,7 +35,7 @@ jobs:
           title: '[New Branch Created] Update generate_files.yml.'
           body: |
             # Update Report
-            Branch ${GITHUB_REF##*/} added to .github/generate_files.yml
+            Branch ${GITHUB_REF##*/} added to ./.github/workflows/generate_files.yml
           reviewers: mbiarnes,ginxo,mareknovotny
           draft: false
       - name: Check outputs
