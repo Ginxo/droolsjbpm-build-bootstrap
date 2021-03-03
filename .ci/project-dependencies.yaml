@@ -143,7 +143,6 @@ dependencies:
 
   - project: kiegroup/kie-wb-distributions
     dependencies:
-      - project: kiegroup/droolsjbpm-build-bootstrap
       - project: kiegroup/kie-soup
       - project: kiegroup/drools
       - project: kiegroup/optaplanner
