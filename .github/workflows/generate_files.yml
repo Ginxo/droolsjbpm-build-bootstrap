@@ -73,7 +73,7 @@ jobs:
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
           branch: ${{ env.BRANCH_NAME_FLOW }}
-          base: ${GITHUB_REF##*/}
+          base: ${{ env.GITHUB_REF##*/ }}
           delete-branch: true
           title: '[Build Chain] Update build chain and repository-list files.'
           body: |
