@@ -62,7 +62,9 @@ jobs:
             **/repository-list.txt          
             **/branched-7-repository-list.txt           
       - name: Set branch name
-        run: echo "BRANCH_NAME_FLOW=generate_files/$(date +'%Y%m%dT%H%M%S')" >> $GITHUB_ENV          
+        run: echo "BRANCH_NAME_FLOW=generate_files_$(date +'%Y%m%dT%H%M%S')" >> $GITHUB_ENV           
+      - name: Set base branch name
+        run: echo "BASE_BRANCH_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV          
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v3
@@ -73,7 +75,7 @@ jobs:
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
           branch: ${{ env.BRANCH_NAME_FLOW }}
-          base: ${{ env.GITHUB_REF##*/ }}
+          base: ${{ env.BASE_BRANCH_NAME }}
           delete-branch: true
           title: '[Build Chain] Update build chain and repository-list files.'
           body: |
