@@ -8,15 +8,15 @@ on:
       - new_branch_action/*
 
 jobs:
-  build-chain:
+  adapt-generate-files:
     runs-on: ubuntu-latest
-    name: File Generation
+    name: Adapt generate_files
     steps:
       - uses: actions/checkout@v2
-      - name: printenv
-        run: printenv
+      - name: print current branch
+        run: echo ${GITHUB_REF##*/}
       - name: Add branch to generate_files.yml
-        run: echo "TODO"
+        run: sed -i "6i \ \ \ \ \ \ \- ${GITHUB_REF##*/}" ./.github/generate_files.yml
       - name: Add Changes
         run: git add ./.github/generate_files.yml
       - name: Set branch name
@@ -35,7 +35,7 @@ jobs:
           title: '[New Branch Created] Update generate_files.yml.'
           body: |
             # Update Report
-            Branch TODO added to .github/generate_files.yml
+            Branch ${GITHUB_REF##*/} added to .github/generate_files.yml
           reviewers: mbiarnes,ginxo,mareknovotny
           draft: false
       - name: Check outputs
