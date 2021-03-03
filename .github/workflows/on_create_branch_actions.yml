@@ -1,0 +1,45 @@
+name: On create branch action
+
+on:
+  push:
+    types: [created]
+    branches-ignore:
+      - generate_files/*
+      - dependabot/*
+      - new_branch_action/*
+
+jobs:
+  build-chain:
+    runs-on: ubuntu-latest
+    name: File Generation
+    steps:
+      - uses: actions/checkout@v2
+      - name: printenv
+        run: printenv
+      - name: Add branch to generate_files.yml
+        run: echo "TODO"
+      - name: Add Changes
+        run: git add ./.github/generate_files.yml
+      - name: Set branch name
+        run: echo "BRANCH_NAME_FLOW=new_branch_action/$(date +'%Y%m%dT%H%M%S')" >> $GITHUB_ENV          
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Update generate_files.yml
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          signoff: false
+          branch: ${{ env.BRANCH_NAME_FLOW }}
+          delete-branch: true
+          title: '[New Branch Created] Update generate_files.yml.'
+          body: |
+            # Update Report
+            Branch TODO added to .github/generate_files.yml
+          reviewers: mbiarnes,ginxo,mareknovotny
+          draft: false
+      - name: Check outputs
+        run: |
+          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
+          echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
