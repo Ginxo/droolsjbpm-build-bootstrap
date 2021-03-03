@@ -1,8 +1,7 @@
 name: On create branch action
 
 on:
-  push:
-    types: [created]
+  create:
     branches-ignore:
       - generate_files/*
       - dependabot/*
