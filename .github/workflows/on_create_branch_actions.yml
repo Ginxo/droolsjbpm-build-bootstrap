@@ -36,7 +36,6 @@ jobs:
           body: |
             # Update Report
             Branch ${GITHUB_REF##*/} added to ./.github/workflows/generate_files.yml
-          reviewers: mbiarnes,ginxo,mareknovotny
           draft: false
       - name: Check outputs
         run: |
